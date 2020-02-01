@@ -4,7 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon index.js",
+    "start": "node index.js",
+    "rollback": "knex migrate:rollback --all",
+    "migrate": "knex migrate:latest",
+    "seed": "knex seed:run",
+    "resetdb": "knex migrate:rollback --all && knex migrate:latest && knex seed:run"
   },
   "repository": {
     "type": "git",
