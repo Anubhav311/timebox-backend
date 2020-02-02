@@ -15,7 +15,7 @@ exports.up = function(knex) {
             .notNullable();
 
         tbl.integer('timebox')
-            .defaultTo(0)
+            .defaultTo(10)
             .notNullable();
     })
     .createTable('tasks', tbl => {
