@@ -24,7 +24,7 @@ function getOne(filter = {}) {
 }
 
 function getMany(filter = {}) {
-    return db('users').where(filter)
+    return db('subtasks').where({task_id: 1})
 }
 
 function update(filter = {}, payload) {

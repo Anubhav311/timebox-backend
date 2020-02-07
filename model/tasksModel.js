@@ -19,7 +19,27 @@ function insert(user) {
 }
 
 function getMany(filter = {}) {
-    return db('tasks').where(filter)
+    let tasksAndSubtasks = []
+
+    return db('tasks')
+        .where(filter)
+        .first()
+        .then(tasks => {
+            // tasksAndSubtasks = tasks
+            // for (i = 0; i < tasksAndSubtasks.length; i++) {
+            //     tasksAndSubtasks[i].subtasks = getManySubtasks()
+            subtasks = db('subtasks').where({task_id: 1})
+            // tasks['subtasks'] = subtasks
+            console.log(typeof(subtasks))
+            return subtasks
+            // }
+            // return tasksAndSubtasks;
+        })
+        // .innerJoin('subtasks', 'tasks.id', 'subtasks.id')
+}
+
+function getManySubtasks() {
+    return db('subtasks').where({task_id: 1})
 }
 
 function update(filter = {}, payload) {
