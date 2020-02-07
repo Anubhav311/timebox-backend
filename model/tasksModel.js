@@ -4,7 +4,8 @@ module.exports = {
     insert,
     getMany,
     update,
-    remove
+    remove,
+    getManySubtasks
 }
 
 function insert(user) {
@@ -22,24 +23,23 @@ function getMany(filter = {}) {
     let tasksAndSubtasks = []
 
     return db('tasks')
-        .where(filter)
+        .where({id: 1})
         .first()
-        .then(tasks => {
+        // .then(tasks => {
             // tasksAndSubtasks = tasks
             // for (i = 0; i < tasksAndSubtasks.length; i++) {
             //     tasksAndSubtasks[i].subtasks = getManySubtasks()
-            subtasks = db('subtasks').where({task_id: 1})
+            // subtasks = db('subtasks').where({task_id: 1})
             // tasks['subtasks'] = subtasks
-            console.log(typeof(subtasks))
-            return subtasks
+            // return tasks
             // }
             // return tasksAndSubtasks;
-        })
+        // })
         // .innerJoin('subtasks', 'tasks.id', 'subtasks.id')
 }
 
-function getManySubtasks() {
-    return db('subtasks').where({task_id: 1})
+function getManySubtasks(filter) {
+    return db('subtasks').where(filter)
 }
 
 function update(filter = {}, payload) {
