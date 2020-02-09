@@ -24,7 +24,7 @@ function getMany(filter = {}) {
 
     return db('tasks')
         .where({id: 1})
-        .first()
+        // .first()
         // .then(tasks => {
             // tasksAndSubtasks = tasks
             // for (i = 0; i < tasksAndSubtasks.length; i++) {
@@ -38,7 +38,7 @@ function getMany(filter = {}) {
         // .innerJoin('subtasks', 'tasks.id', 'subtasks.id')
 }
 
-function getManySubtasks(filter) {
+function getManySubtasks(filter = {}) {
     return db('subtasks').where(filter)
 }
 
