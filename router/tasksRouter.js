@@ -1,16 +1,14 @@
 const router = require('express').Router();
 const skillsDb = require('../model/tasksModel');
 
+
 router.get('/', (req, res) => {
     filter = req.body
     skillsDb.getMany(filter)
-        .then(skills => {
-            skillsDb.getManySubtasks({task_id: 1})
-            .then(subtasks => {
-                res.status(200).json({skills: skills, subtasks: subtasks});
-            })
-        })
-        .catch(err => res.send(err));
+    .then(skills => {
+        res.status(200).json(skills)
+    })
+    .catch(err => res.send(err));
 });
 
 router.post('/', (req, res) => {
