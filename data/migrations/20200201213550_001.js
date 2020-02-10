@@ -14,14 +14,14 @@ exports.up = function(knex) {
         tbl.datetime('task_created_at').defaultTo(knex.fn.now());
         tbl.datetime('task_due_at').defaultTo(knex.fn.now());
         tbl.string('task').notNullable();
-        tbl.integer('task_completion_status').defaultTo(0).notNullable();
+        tbl.boolean('task_completion_status').defaultTo(false).notNullable();
     })
     .createTable('subtasks', tbl => {
         tbl.increments('subtask_id_pk');
         tbl.integer('task_id_fk').notNullable().references('task_id_pk').inTable('tasks').onDelete('CASCADE').onUpdate('CASCADE');
         tbl.string('subtask').notNullable();
         tbl.datetime('subtask_created_at').defaultTo(knex.fn.now());
-        tbl.integer('subtask_completion_status').defaultTo(0).notNullable();
+        tbl.boolean('subtask_completion_status').defaultTo(false).notNullable();
     })
 };
 
