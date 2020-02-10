@@ -20,6 +20,7 @@ function insert(user) {
 
 function getMany(filter = {}) {
     return db('tasks')
+        .join('subtasks', 'tasks.task_id_pk', '=', 'subtasks.task_id_fk')
         .where(filter)
 }
 
