@@ -21,8 +21,8 @@ function insert(user) {
 function getMany(filter = {}) {
     return db('tasks')
         .join('subtasks', 'tasks.task_id_pk', '=', 'subtasks.task_id_fk')
-        .where('task_due_at', '>=', '2020-02-10T00:00:00Z')
-        .where('task_due_at', '<', '2020-02-11T00:00:00Z')
+        .where('task_due_at', '>=', '2020-02-11T00:00:00Z')
+        .where('task_due_at', '<', '2020-02-12T00:00:00Z')
 }
 
 function update(filter = {}, payload) {
