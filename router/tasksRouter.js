@@ -3,8 +3,8 @@ const skillsDb = require('../model/tasksModel');
 
 
 router.get('/', (req, res) => {
-    filter = req.query.startdate
-    console.log(req.query.startdate)
+    filter = req.query
+    console.log(req.query)
     skillsDb.getMany(filter)
     .then(skills => {
         res.status(200).json(skills)
