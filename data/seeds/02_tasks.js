@@ -1,7 +1,7 @@
 
 exports.seed = function(knex) {
   let currentDate = new Date()
-  let currentDay = currentDate.getDate();
+  let currentDay = currentDate.getDay();
   let date1 = new Date(); date1.setDate(date1.getDate() - currentDay + 1)
   let date2 = new Date(); date2.setDate(date2.getDate() - currentDay + 2)
   let date3 = new Date(); date3.setDate(date3.getDate() - currentDay + 3)
