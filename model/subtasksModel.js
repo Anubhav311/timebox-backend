@@ -20,7 +20,7 @@ function insert(user) {
 
 function getMany(filter = {}) {
     return db('subtasks')
-        .where(fiilter)
+        .where(filter)
 }
 
 function update(filter = {}, payload) {
