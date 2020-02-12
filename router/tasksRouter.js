@@ -1,10 +1,10 @@
 const router = require('express').Router();
-const skillsDb = require('../model/tasksModel');
+const tasksDb = require('../model/tasksModel');
 
 
 router.get('/', (req, res) => {
     filter = req.query
-    skillsDb.getMany(filter)
+    tasksDb.getMany(filter)
     .then(skills => {
         res.status(200).json(skills)
     })
@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
     payload = req.body
-    skillsDb.insert(payload)
+    tasksDb.insert(payload)
         .then(response => {
             res.status(200).json(response);
         })
@@ -21,7 +21,7 @@ router.post('/', (req, res) => {
 })
 
 router.put('/', (req, res) => {
-    skillsDb.update({id: req.body.id}, req.body.payload)
+    tasksDb.update({id: req.body.id}, req.body.payload)
         .then(response => {
             res.status(200).json(response);
         })
@@ -29,7 +29,7 @@ router.put('/', (req, res) => {
 })
 
 router.delete('/', (req, res) => {
-    skillsDb.remove(req.body)
+    tasksDb.remove(req.body)
         .then(response => {
             res.status(200).json(response);
         })
