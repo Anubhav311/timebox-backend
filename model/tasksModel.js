@@ -10,11 +10,11 @@ module.exports = {
 function insert(user) {
     return db('tasks')
         .insert(user)
-        .returning('id')
+        .returning('task_id_pk')
         .then(idArr => {
-            const id = idArr[0]
+            const task_id_pk = idArr[0]
             return db('tasks')
-                .where({id}).first();
+                .where({task_id_pk}).first();
         })
 }
 
