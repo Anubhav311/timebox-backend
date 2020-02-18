@@ -29,11 +29,11 @@ function update(filter = {}, payload) {
     return db('tasks')
         .where(filter)
         .update(payload)
-        .returning('id')
+        .returning('task_id_pk')
         .then(idArr => {
-            const id = idArr[0]
+            const task_id_pk = idArr[0]
             return db('tasks')
-                .where({id})
+                .where({task_id_pk})
                 .first();
         })
 }
