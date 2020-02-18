@@ -43,5 +43,5 @@ function remove(filter = null) {
     return db('tasks')
         .where(filter)
         .delete()
-        .returning('id');
+        .returning('task_id_pk');
 }

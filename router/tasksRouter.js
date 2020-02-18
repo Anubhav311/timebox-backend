@@ -29,7 +29,7 @@ router.put('/', (req, res) => {
 })
 
 router.delete('/', (req, res) => {
-    tasksDb.remove(req.body)
+    tasksDb.remove(req.query)
         .then(response => {
             res.status(200).json(response);
         })
