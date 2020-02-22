@@ -21,7 +21,8 @@ router.post('/', (req, res) => {
 })
 
 router.put('/', (req, res) => {
-    tasksDb.update({task_id_pk: req.body.task_id_pk}, req.body.payload)
+    console.log(req.body)
+    tasksDb.update({task_id_pk: req.body.id}, req.body.payload)
         .then(response => {
             res.status(200).json(response);
         })
