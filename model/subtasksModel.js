@@ -27,11 +27,11 @@ function update(filter = {}, payload) {
     return db('subtasks')
         .where(filter)
         .update(payload)
-        .returning('id')
+        .returning('subtask_id_pk')
         .then(idArr => {
-            const id = idArr[0]
+            const subtask_id_pk = idArr[0]
             return db('subtasks')
-                .where({id})
+                .where({subtask_id_pk})
                 .first();
         })
 }

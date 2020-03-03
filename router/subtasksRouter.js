@@ -21,9 +21,11 @@ router.post('/', (req, res) => {
 })
 
 router.put('/', (req, res) => {
-    subtasksDb.update({id: req.body.id}, req.body.payload)
+    console.log(req.body.id, req.body.payload)
+    subtasksDb.update({subtask_id_pk: req.body.id}, req.body.payload)
         .then(response => {
             res.status(200).json(response);
+            console.log(response)
         })
         .catch(err => res.send(err));
 })
