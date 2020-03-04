@@ -21,7 +21,6 @@ router.post('/', (req, res) => {
 })
 
 router.put('/', (req, res) => {
-    console.log(req.body.id, req.body.payload)
     subtasksDb.update({subtask_id_pk: req.body.id}, req.body.payload)
         .then(response => {
             res.status(200).json(response);

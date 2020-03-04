@@ -10,11 +10,11 @@ module.exports = {
 function insert(user) {
     return db('subtasks')
         .insert(user)
-        .returning('id')
+        .returning('subtask_id_pk')
         .then(idArr => {
-            const id = idArr[0]
+            const subtask_id_pk = idArr[0]
             return db('subtasks')
-                .where({id}).first();
+                .where({subtask_id_pk}).first();
         })
 }
 
