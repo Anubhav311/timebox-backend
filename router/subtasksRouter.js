@@ -30,7 +30,7 @@ router.put('/', (req, res) => {
 })
 
 router.delete('/', (req, res) => {
-    subtasksDb.remove(req.body)
+    subtasksDb.remove(req.query)
         .then(response => {
             res.status(200).json(response);
         })
