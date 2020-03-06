@@ -5,8 +5,8 @@ const tasksDb = require('../model/tasksModel');
 router.get('/', (req, res) => {
     filter = req.query
     tasksDb.getMany(filter)
-    .then(skills => {
-        res.status(200).json(skills)
+    .then(tasks => {
+        res.status(200).json(tasks)
     })
     .catch(err => res.send(err));
 });

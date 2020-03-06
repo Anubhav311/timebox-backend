@@ -6,15 +6,15 @@ router.get('/', (req, res) => {
     if (req.query.tasksIds) {
         const filter = JSON.parse(req.query.tasksIds) //converting string into an array
         subtasksDb.getMany(filter)
-        .then(skills => {
-            res.status(200).json(skills)
+        .then(subtasks => {
+            res.status(200).json(subtasks)
         })
         .catch(err => res.send(err));
     } else {
         filter = req.query
         subtasksDb.getMany(filter)
-        .then(skills => {
-            res.status(200).json(skills)
+        .then(subtasks => {
+            res.status(200).json(subtasks)
         })
         .catch(err => res.send(err));
     }
