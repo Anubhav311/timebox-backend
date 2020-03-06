@@ -3,12 +3,21 @@ const subtasksDb = require('../model/subtasksModel');
 
 
 router.get('/', (req, res) => {
-    filter = req.query
-    subtasksDb.getMany(filter)
-    .then(skills => {
-        res.status(200).json(skills)
-    })
-    .catch(err => res.send(err));
+    if (req.query.tasksIds) {
+        const filter = JSON.parse(req.query.tasksIds) //converting string into an array
+        subtasksDb.getMany(filter)
+        .then(skills => {
+            res.status(200).json(skills)
+        })
+        .catch(err => res.send(err));
+    } else {
+        filter = req.query
+        subtasksDb.getMany(filter)
+        .then(skills => {
+            res.status(200).json(skills)
+        })
+        .catch(err => res.send(err));
+    }
 });
 
 router.post('/', (req, res) => {
