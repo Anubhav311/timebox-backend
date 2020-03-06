@@ -19,6 +19,12 @@ function insert(user) {
 }
 
 function getMany(filter = {}) {
+    if (filter instanceof Array) {
+        console.log(filter)
+        return db('subtasks')
+            .where('task_id_fk', filter)
+    }
+    console.log('outside')
     return db('subtasks')
         .where(filter)
 }
