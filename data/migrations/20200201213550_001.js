@@ -21,7 +21,7 @@ exports.up = function(knex) {
         tbl.integer('task_id_fk').notNullable().references('task_id_pk').inTable('tasks').onDelete('CASCADE').onUpdate('CASCADE');
         tbl.string('subtask').notNullable();
         tbl.datetime('subtask_created_at').defaultTo(knex.fn.now());
-        tbl.datetime('subtask_due_at').notNullable();
+        tbl.datetime('subtask_due_at').defaultTo(knex.fn.now()).notNullable();
         tbl.boolean('subtask_completion_status').defaultTo(false).notNullable();
     })
 };
