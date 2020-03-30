@@ -7,6 +7,7 @@ router.get('/', (req, res) => {
     // console.log(test)
     tasksDb.getMany(filter)
     .then(tasks => {
+        console.log(tasks)
         res.status(200).json(tasks)
     })
     .catch(err => res.send(err));

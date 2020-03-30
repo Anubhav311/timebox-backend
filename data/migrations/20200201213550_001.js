@@ -11,20 +11,8 @@ exports.up = function(knex) {
     .createTable('tasks', tbl => {
         tbl.increments('task_id_pk');
         tbl.integer('user_id_fk').notNullable().references('user_id_pk').inTable('users').onDelete('CASCADE').onUpdate('CASCADE');
-        // tbl.datetime('task_created_at').defaultTo(knex.fn.now());
-        tbl.integer('task_created_at_year').notNullable()
-        tbl.integer('task_created_at_month').notNullable()
-        tbl.integer('task_created_at_date').notNullable()
-        tbl.integer('task_created_at_hour').notNullable()
-        tbl.integer('task_created_at_minute').notNullable()
-        tbl.integer('task_created_at_second').notNullable()
-        // tbl.datetime('task_due_at').defaultTo(knex.fn.now());
-        tbl.integer('task_due_at_year').notNullable()
-        tbl.integer('task_due_at_month').notNullable()
-        tbl.integer('task_due_at_date').notNullable()
-        tbl.integer('task_due_at_hour').notNullable()
-        tbl.integer('task_due_at_minute').notNullable()
-        tbl.integer('task_due_at_seconds').notNullable()
+        tbl.datetime('task_created_at').defaultTo(knex.fn.now());
+        tbl.datetime('task_due_at').defaultTo(knex.fn.now());
         tbl.string('task').notNullable();
         tbl.boolean('task_completion_status').defaultTo(false).notNullable();
     })
@@ -32,20 +20,8 @@ exports.up = function(knex) {
         tbl.increments('subtask_id_pk');
         tbl.integer('task_id_fk').notNullable().references('task_id_pk').inTable('tasks').onDelete('CASCADE').onUpdate('CASCADE');
         tbl.string('subtask').notNullable();
-        // tbl.datetime('subtask_created_at').defaultTo(knex.fn.now());
-        tbl.integer('subtask_created_at_year').notNullable()
-        tbl.integer('subtask_created_at_month').notNullable()
-        tbl.integer('subtask_created_at_date').notNullable()
-        tbl.integer('subtask_created_at_hour').notNullable()
-        tbl.integer('subtask_created_at_minute').notNullable()
-        tbl.integer('subtask_created_at_second').notNullable()
-        // tbl.datetime('subtask_due_at').defaultTo(knex.fn.now()).notNullable();
-        tbl.integer('subtask_due_at_year').notNullable()
-        tbl.integer('subtask_due_at_month').notNullable()
-        tbl.integer('subtask_due_at_date').notNullable()
-        tbl.integer('subtask_due_at_hour').notNullable()
-        tbl.integer('subtask_due_at_minute').notNullable()
-        tbl.integer('subtask_due_at_second').notNullable()
+        tbl.datetime('subtask_created_at').defaultTo(knex.fn.now());
+        tbl.datetime('subtask_due_at').defaultTo(knex.fn.now()).notNullable();
         tbl.boolean('subtask_completion_status').defaultTo(false).notNullable();
     })
 };
