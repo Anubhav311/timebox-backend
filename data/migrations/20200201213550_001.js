@@ -12,19 +12,19 @@ exports.up = function(knex) {
         tbl.increments('task_id_pk');
         tbl.integer('user_id_fk').notNullable().references('user_id_pk').inTable('users').onDelete('CASCADE').onUpdate('CASCADE');
         // tbl.datetime('task_created_at').defaultTo(knex.fn.now());
-        tbl.integer('task_created_year').notNullable()
-        tbl.integer('task_created_month').notNullable()
-        tbl.integer('task_created_date').notNullable()
-        tbl.integer('task_created_hour').notNullable()
-        tbl.integer('task_created_minute').notNullable()
-        tbl.integer('task_created_second').notNullable()
+        tbl.integer('task_created_at_year').notNullable()
+        tbl.integer('task_created_at_month').notNullable()
+        tbl.integer('task_created_at_date').notNullable()
+        tbl.integer('task_created_at_hour').notNullable()
+        tbl.integer('task_created_at_minute').notNullable()
+        tbl.integer('task_created_at_second').notNullable()
         // tbl.datetime('task_due_at').defaultTo(knex.fn.now());
-        tbl.integer('task_due_year').notNullable()
-        tbl.integer('task_due_month').notNullable()
-        tbl.integer('task_due_date').notNullable()
-        tbl.integer('task_due_hour').notNullable()
-        tbl.integer('task_due_minute').notNullable()
-        tbl.integer('task_due_seconds').notNullable()
+        tbl.integer('task_due_at_year').notNullable()
+        tbl.integer('task_due_at_month').notNullable()
+        tbl.integer('task_due_at_date').notNullable()
+        tbl.integer('task_due_at_hour').notNullable()
+        tbl.integer('task_due_at_minute').notNullable()
+        tbl.integer('task_due_at_seconds').notNullable()
         tbl.string('task').notNullable();
         tbl.boolean('task_completion_status').defaultTo(false).notNullable();
     })
