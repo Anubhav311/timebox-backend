@@ -3,11 +3,9 @@ const tasksDb = require('../model/tasksModel');
 
 
 router.get('/', (req, res) => {
-    const filter = JSON.parse(req.query.startandenddate)
-    // console.log(test)
+    filter = req.query
     tasksDb.getMany(filter)
     .then(tasks => {
-        console.log(tasks)
         res.status(200).json(tasks)
     })
     .catch(err => res.send(err));
